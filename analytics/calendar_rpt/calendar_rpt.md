@@ -30,7 +30,7 @@ The calculations are needed to construct the calendar list view. In some cases t
     MonthNAME(Date)
     
     ```
-![](images/2024-11-06-10-38-11.png)
+![](images/2024-11-06-10-38-11.png) 
 
    Create the muneric day of the week calc. 
 
