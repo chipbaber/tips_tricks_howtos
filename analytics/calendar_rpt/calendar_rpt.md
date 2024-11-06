@@ -12,8 +12,6 @@ We'll show you
 
 [How to Develop a Calendar Report in Oracle Data Visualizer](youtube:xxxxxxx)
 
-
-
 ## Task 1: Create Database User with Grants
 
 As the user **ADMIN**, issue the below SQL Statements
