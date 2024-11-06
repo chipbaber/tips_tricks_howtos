@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. 
+Coming soon WIP ! In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. During this tutoriol we will showcase how to modify DV lists so that they build a make shift calendar of information items per day of the month. 
 
 We'll show you
 
@@ -10,60 +10,51 @@ We'll show you
 * Create custom calculations on a date field.
 * Leverage the List Vizualization to create a calendar display. 
 
+Please watch this first. Only the basic instructions and sample code will be provided below, the core guidance is inside the video itself. 
 [How to Develop a Calendar Report in Oracle Data Visualizer](youtube:xxxxxxx)
 
-## Task 1: Create Database User with Grants
+## Task 1: Open DV and Upload the Sample Data Set
 
-As the user **ADMIN**, issue the below SQL Statements
 
-1.  Create Database User
+1.  Download the sample data set to your local machine. 
+
+The sample csv file below can be found at: [Sample Data CSV] (https://raw.githubusercontent.com/chipbaber/tips_tricks_howtos/refs/heads/main/analytics/calendar_rpt/files/sample.csv)
+
+
+## Task 2: Develop the Following Calculations
+
+The calculations are needed to construct the calendar list view. In some cases the calculation will be created for you on .csv upload, however if you are leveraging a restricted data set I will include the examples for all. 
+
+1. Create the Month column calculation.
+    ```
+    MonthNAME(Date)
+    
+    ```
+![](images/2024-11-06-10-38-11.png)
+
+   Create the muneric day of the week calc. 
 
     ```
-    <copy>
-	create user vector identified by "{password}";
-	grant dwrole to vector;
-    </copy>
+   DAYOFWEEK(Date)
     ```
+![](images/2024-11-06-10-41-46.png)
 
-2.  Grant Database User Access to DBMS Packages
+  Create the alphabetical day of the week calc. 
+  ```
+  DAYNAME(Date)
+  ```
 
-    ```
-    <copy>
-    grant execute on DBMS_CLOUD to vector;
-    grant execute on DBMS_VECTOR to vector;
-    </copy>
-    ```
+   Create the interaction week starting calculation.
+  ```
+  EXTRACTWEEK(Date)
+  ``` 
+  ![](images/2024-11-06-10-46-56.png)
 
-## Task 2: Update Access Control List
+  2. Set the date format in the list report. 
 
-As the user **ADMIN**, issue the following PL/SQL Code
-
-1. Grant Non-Admin User Permission to Access OCI Gen AI Provider
-
-    ```
-    <copy>
-	BEGIN
-	DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE (
-	  HOST         => 'inference.generativeai.us-chicago-1.oci.oraclecloud.com',
-	  ACE          => xs$ace_type(
-		  PRIVILEGE_LIST => xs$name_list('http'),
-		  PRINCIPAL_NAME => 'vector',
-		  PRINCIPAL_TYPE => xs_acl.ptype_db));
-	END;
-	/	
-    </copy>
-    ```
-
-    If you would like to see what existing ACL Priviledges exist, execute the following SQL Statement
-
-    ```
-    <copy>
-	select a.host, b.principal, b.privilege, b.is_grant 
-    from dba_network_acls a, dba_network_acl_privileges b
-    where a.acl = b.acl;     
-    </copy>
-    ```
-
+  ```
+  MMM DD: 
+  ```
     
 
 ## Acknowledgements
