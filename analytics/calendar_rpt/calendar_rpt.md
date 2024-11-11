@@ -2,16 +2,24 @@
 
 ## Introduction
 
-Coming soon WIP ! In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. During this tutoriol we will showcase how to modify DV lists so that they build a make shift calendar of information items per day of the month. 
+In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. During this tutoriol we will showcase how to modify DV lists so that they build a make shift calendar of information items per day of the month. 
 
 We'll show you
 
 * Import a sample data set
 * Create custom calculations on a date field.
-* Leverage the List Vizualization to create a calendar display. 
+* Create a filter to limit view to a single month
+* Leverage the List Vizualization to create a calendar display view leveraging your filters. 
 
 Please watch this first. Only the basic instructions and sample code will be provided below, the core guidance is inside the video itself. 
-[How to Develop a Calendar Report in Oracle Data Visualizer](youtube:xxxxxxx)
+[How to Develop a Calendar Report in Oracle Data Visualizer](https://youtu.be/wmckqRVbWV4)
+
+For other how to videos please visit my playlist [Technology and Coding](https://www.youtube.com/playlist?list=PLsnBif_-5JnA8Hzvp8e1bQ3fo6VEvYEB0)
+
+Your end result will look like: 
+
+![](images/2024-11-08-09-59-42.png)
+
 
 ## Task 1: Open DV and Upload the Sample Data Set
 
@@ -32,34 +40,37 @@ The calculations are needed to construct the calendar list view. In some cases t
     ```
 ![](images/2024-11-06-10-38-11.png) 
 
-   Create the muneric day of the week calc. 
+2. Create the muneric day of the week calc. 
 
     ```
    DAYOFWEEK(Date)
     ```
 ![](images/2024-11-06-10-41-46.png)
 
-  Create the alphabetical day of the week calc. 
+3. Create the alphabetical day of the week calc. 
+
   ```
   DAYNAME(Date)
   ```
 
-   Create the interaction week starting calculation.
+4. Create the interaction week starting calculation.
   ```
   EXTRACTWEEK(Date)
   ``` 
   ![](images/2024-11-06-10-46-56.png)
 
-  2. Set the date format in the list report. 
+## Task 3: Set the Display Date Format
+
+1. Set the date format in the list report. 
 
   ```
   MMM DD: 
   ```
-    
+  
 
 ## Acknowledgements
   * **Authors:** Chip Baber, Director Cloud Engineering, Oracle Code Innovate
-  * **Last Updated By/Date:** Chip Baber, Sept 18, 2024
+  * **Last Updated By/Date:** Chip Baber, Nov. 11, 2024
 
 Copyright (C)  Oracle Corporation.
 
