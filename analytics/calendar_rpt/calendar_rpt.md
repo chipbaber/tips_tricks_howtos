@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. During this tutoriol we will showcase how to modify DV lists so that they build a make shift calendar of information items per day of the month. 
+In the current release of OAC the ability to do calendar based vizualizations is very limited. The only option at the time of this recording was to leverage the Calendar Heat Map Custom Vizualization which for my purpose was not the best option. During this tutorial we will showcase how to modify DV lists so that they build a make shift calendar of information items per day of the month. 
 
 We'll show you
 
